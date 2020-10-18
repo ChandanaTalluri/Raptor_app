@@ -7,9 +7,6 @@ const router = express.Router();
 router.get('/', function (req, res, next) {
   res.render('homepage');
 });
-router.get('/feeding', function (req, res, next) {
-  res.render('feeding');
-});
 
 
 

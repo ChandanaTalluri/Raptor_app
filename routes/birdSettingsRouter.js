@@ -3,11 +3,12 @@ var router = express.Router();
 var axios = require('axios');
 var addNewBirdController = require('../controllers/addNewBirdController');
 
+console.log("entered router");
 router.get('/', addNewBirdController.get_settings);
 
-router.get('/animals/animalHoomePage', addNewBirdController.get_add_bird);
+router.get('/animalHoomePage', addNewBirdController.get_add_animal);
 
-router.post('/medicines/medicinesHoomePage', addNewBirdController.post_add_bird);
+router.get('/medicinesHoomePage', addNewBirdController.get_add_medicine);
 
 module.exports = router;
 
