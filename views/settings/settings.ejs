@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -6,20 +5,20 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <%- include ./partials/header %>
+<%- include ../partials/header %>
 
 
-    <body >
-        
-        <% include ./partials/navbar %>
-        <br>
+<body>
 
+    <% include ../partials/navbar %>
+    <br>
+    <div class="container">
         <h1> Settings</h1>
         <a href="/settings/animals/animalHomePage" class="btn btn-primary"> Animals</a>
-        <a href="/settings/medicines/medicinesHopePage" class="btn btn-primary"> Medicine</a>
+        <a href="/settings/medicines/medicinesHomePage" class="btn btn-primary"> Medicine</a>
         <a href="/settings/foodType/foodType" class="btn btn-primary"> Food Type</a>
+    </div>
+    <% include ../partials/scripts%>
+</body>
 
-        <% include ./partials/scripts%>
-    </body>
 </html>
-
