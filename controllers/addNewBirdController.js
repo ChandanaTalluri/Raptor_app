@@ -28,3 +28,4 @@ exports.get_update_animal = function(req, res) {
 exports.get_update_medicine = function(req, res) {
     res.render('settings/medicines/updateMedicins');
 }
+
