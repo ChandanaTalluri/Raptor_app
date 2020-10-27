@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const homePageRouter = require('./routes/homePageRouter');
@@ -11,6 +11,10 @@ const birdSettingsRouter = require('./routes/birdSettingsRouter');
 const feedingRouter = require('./routes/feedingRouter');
 
 var app = express();
+
+require('dotenv').config({path: __dirname + '/.env'})
+
+mongoose.connect(process.env['CONNECTION'],{ useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
