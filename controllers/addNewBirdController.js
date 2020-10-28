@@ -1,4 +1,4 @@
-const Animal = require('../models/animal');
+const Animal = require('../models/animal.model');
 
 exports.get_settings = function(req, res) {
     
@@ -29,14 +29,14 @@ exports.post_create_animal = function (req, res) {
         nickName: req.body.nickName,
         enabled: enabled,
     });
-
+    console.log(newAnimal);
     newAnimal.save(function (err) {
         if (err) {
             // handle error
             console.log(err);
         } else {
             // saved!
-            res.redirect('/animalHomePage')
+            res.redirect('animalHomePage')
         }
     });
 }
