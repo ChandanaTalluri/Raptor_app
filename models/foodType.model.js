@@ -6,5 +6,5 @@ const foodTypeSchema = new Schema({
 });
 
 foodTypeSchema.set('toJSON', { virtuals: true });
-const foodType = mongoose.model('foodType', foodTypeSchema);
-module.exports = foodType;
+const FoodType = mongoose.model('foodType', foodTypeSchema);
+module.exports = FoodType;

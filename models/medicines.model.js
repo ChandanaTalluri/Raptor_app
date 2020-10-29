@@ -6,5 +6,5 @@ const medicinesSchema = new Schema({
 });
 
 medicinesSchema.set('toJSON', { virtuals: true });
-const medicines = mongoose.model('medicines', medicinesSchema);
-module.exports = medicines;
+const Medicines = mongoose.model('medicines', medicinesSchema);
+module.exports = Medicines;

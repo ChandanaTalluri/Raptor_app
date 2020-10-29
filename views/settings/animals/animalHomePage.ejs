@@ -26,7 +26,7 @@
                  <td><%=data[i].nickName%></td>
                  <td><%=data[i].enabled%></td>
                  <td><a href="/settings/animals/updateAnimal?id=<%= data[i]._id %>"><img src="https://img.icons8.com/android/24/000000/edit.png"/></a> 
-                  <a  href="/settings/animals/deleteAnimal?id=<%= data[i]._id %>" onclick="return confirm('Are you sure you want to delete this?')"><img src="https://img.icons8.com/fluent-systems-filled/24/000000/trash.png"/></a></td>
+                  <a  href="/settings/animals/delete?id=<%= data[i]._id %>" onclick="return confirm('Are you sure you want to delete this?')"><img src="https://img.icons8.com/fluent-systems-filled/24/000000/trash.png"/></a></td>
                 </tr>
              <% } %>
              </table>

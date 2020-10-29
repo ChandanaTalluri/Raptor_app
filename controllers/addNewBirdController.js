@@ -80,7 +80,7 @@ exports.post_update_animal = function (req, res) {
             // handle error
             console.log(err);
         } else {
-            res.redirect('/animalHomePage');
+            res.redirect('animalHomePage');
         }
     });
 };
@@ -91,7 +91,7 @@ exports.get_delete_animal = function(req, res) {
         // handle error
         console.log(err);
       } else {
-        res.redirect('/animalHomePage');
+        res.redirect('animalHomePage');
       }
     });
   };
@@ -99,9 +99,5 @@ exports.get_update_medicine = function(req, res) {
     res.render('settings/medicines/updateMedicins');
 }
 
-exports.get_delete_animal = function(req, res) {
-    res.render('settings/animals/deleteAnimal');
-}
-exports.post_delete_animal = function(req, res) {
-    res.render('settings/animals/updateAnimal');
-}
+
+

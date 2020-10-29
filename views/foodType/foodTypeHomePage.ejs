@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/header %>
+
+<body>
+    <% include ../partials/navbar %>
+
+    <div class="container">
+        
+               
+        <a href="/foodType/addFoodType" class="btn btn-primary"> Add Food</a>
+        <table id="foodType" class="table table-bordered table-striped">
+    
+            <thead>
+              <tr>
+                <td>Name</td>
+                
+              </tr>
+            </thead>
+        
+             <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                 <td><%=data[i].name%></td>
+                 
+                 <td><a href="/foodType/updateFoodType?id=<%= data[i]._id %>"><img src="https://img.icons8.com/android/24/000000/edit.png"/></a> 
+                  <a  href="/foodType/deleteFoodType?id=<%= data[i]._id %>" onclick="return confirm('Are you sure you want to delete this?')"><img src="https://img.icons8.com/fluent-systems-filled/24/000000/trash.png"/></a></td>
+                </tr>
+             <% } %>
+             </table>
+       
+
+
+    </div>
+
+    <% include ../partials/scripts%>
+    <script type="text/javascript">
+        $(document).ready( function () {
+          $('#foodType').DataTable({
+            responsive: true
+          });
+        });
+      </script>
+
+    
+</body>
+
+</html>
