@@ -10,8 +10,7 @@ exports.get_add_foodType= function(req, res) {
     })
 }
 exports.get_foodType = function(req, res) {
-    alert("Hai")
-    res.render('../foodType/foodTypeHomePage');
+    res.render('foodType/foodTypeHomePage');
 }
 exports.post_add_foodType = function (req, res) {
 
@@ -31,7 +30,7 @@ exports.post_add_foodType = function (req, res) {
             console.log(err);
         } else {
             // saved!
-            res.redirect('foodTypeHomePage')
+            res.redirect('/foodType')
         }
     });
 }
