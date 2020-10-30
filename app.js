@@ -9,7 +9,9 @@ const indexRouter = require('./routes/index');
 const homePageRouter = require('./routes/homePageRouter');
 const birdSettingsRouter = require('./routes/birdSettingsRouter');
 const feedingRouter = require('./routes/feedingRouter');
+const animalsRouter = require('./routes/animalsRouter');
 const foodTypeRouter = require('./routes/foodTypeRouter');
+const medicinesRouter = require('./routes/medicinesRouter');
 
 var app = express();
 
@@ -33,7 +35,9 @@ app.use('/', indexRouter);
 app.use('/homepage',homePageRouter);
 app.use('/settings',birdSettingsRouter);
 app.use('/feeding',feedingRouter);
+app.use('/animals',animalsRouter);
 app.use('/foodType',foodTypeRouter);
+app.use('/medicines',medicinesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

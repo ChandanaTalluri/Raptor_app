@@ -1,21 +1,17 @@
 const Animal = require('../models/animal.model');
 
-exports.get_settings = function(req, res) {
-    
-        res.render('settings/settings');
-     
-}
-exports.get_add_animalHome = function(req, res) {
+
+exports.get_animalHome = function(req, res) {
     Animal.find({}, function (err, animals) {
         if (err) {
             console.error(err);
         } else {
-            res.render('settings/animals/animalHomePage', { data: animals });
+            res.render('animals/animalHomePage', { data: animals });
         }
     })
 }
 exports.get_add_animal = function(req, res) {
-    res.render('settings/animals/addAnimal');
+    res.render('animals/addAnimal');
 }
 exports.post_create_animal = function (req, res) {
 
@@ -36,22 +32,11 @@ exports.post_create_animal = function (req, res) {
             console.log(err);
         } else {
             // saved!
-            res.redirect('animalHomePage')
+            res.redirect('/animals')
         }
     });
 }
 
-exports.get_add_medicineHome = function(req, res) {
-    res.render('settings/medicines/medicinesHomePage');
-}
-
-exports.get_foodType= function(req, res) {
-    res.render('settings/foodType/foodType');
-}
-
-exports.get_add_medicine = function(req, res) {
-    res.render('settings/medicines/addMedicins');
-}
 
 exports.get_update_animal = function(req, res) {
     Animal.findOne({ _id: req.query.id }, function (err, animal) {
@@ -59,7 +44,7 @@ exports.get_update_animal = function(req, res) {
             // handle error
         } else {
             console.log(animal);
-            res.render('settings/animals/updateAnimal', { data: animal });
+            res.render('animals/updateAnimal', { data: animal });
         }
     });
 }
@@ -80,7 +65,7 @@ exports.post_update_animal = function (req, res) {
             // handle error
             console.log(err);
         } else {
-            res.redirect('animalHomePage');
+            res.redirect('/animals');
         }
     });
 };
@@ -91,13 +76,11 @@ exports.get_delete_animal = function(req, res) {
         // handle error
         console.log(err);
       } else {
-        res.redirect('animalHomePage');
+        res.redirect('/animals');
       }
     });
   };
-exports.get_update_medicine = function(req, res) {
-    res.render('settings/medicines/updateMedicins');
-}
+
 
 
 
