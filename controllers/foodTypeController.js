@@ -1,25 +1,21 @@
-const Animal = require('../models/foodType.model');
+const FoodType = require('../models/foodType.model');
 
 exports.get_add_foodType= function(req, res) {
-    Animal.find({}, function (err, foodType) {
+    res.render('foodType/addFoodType');
+   }
+exports.get_foodType = function(req, res) {
+    FoodType.find({}, function (err, foodType) {
         if (err) {
             console.error(err);
         } else {
-            res.render('addFoodType', { data: foodType });
+            res.render('foodType/foodTypeHomePage', { data: foodType });
         }
     })
 }
-exports.get_foodType = function(req, res) {
-    res.render('foodType/foodTypeHomePage');
-}
 exports.post_add_foodType = function (req, res) {
 
-    let enabled = false;
-    if (req.body.enabled == 'on') {
-        enabled = true;
-    }
 
-    let foodType = new Animal({
+    let foodType = new FoodType({
         name: req.body.name,
         
     });
@@ -38,42 +34,39 @@ exports.post_add_foodType = function (req, res) {
 
 
 exports.get_update_foodType= function(req, res) {
-    Animal.findOne({ _id: req.query.id }, function (err, foodType) {
+    FoodType.findOne({ _id: req.query.id }, function (err, foodType) {
         if (err) {
             // handle error
         } else {
-            console.log(animal);
-            res.render('foodTypeHomePage', { data: foodType });
+            console.log(FoodType);
+            res.render('/foodType/updateFoodType', { data: foodType });
         }
     });
 }
 exports.post_update_foodType = function (req, res) {
-    let enabled = false;
-    if (req.body.enabled == 'on') {
-        enabled = true;
-    }
+    
 
     const updateFoodType = {
             name: req.body.name
     };
 
-    Animal.findOneAndUpdate({ _id: req.body.id }, updateFoodType, function (err, data) {
+    FoodType.findOneAndUpdate({ _id: req.body.id }, updateFoodType, function (err, data) {
         if (err) {
             // handle error
             console.log(err);
         } else {
-            res.redirect('foodTypeHomePage');
+            res.redirect('/foodType');
         }
     });
 };
 
 exports.get_delete_foodType = function(req, res) {
-    Animal.findOneAndDelete({_id: req.query.id}, function(err) {
+    FoodType.findOneAndDelete({_id: req.query.id}, function(err) {
       if (err) {
         // handle error
         console.log(err);
       } else {
-        res.redirect('foodTypeHomePage');
+        res.redirect('/foodType');
       }
     });
   };
