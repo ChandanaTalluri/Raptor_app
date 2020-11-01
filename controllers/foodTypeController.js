@@ -11,7 +11,6 @@ exports.get_foodType = function(req, res) {
             res.render('foodType/foodTypeHomePage', { data: foodType });
         }
     })
-    
 }
 exports.post_add_foodType = function (req, res) {
 
