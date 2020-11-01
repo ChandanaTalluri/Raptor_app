@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/header %>
+
+<body>
+  <% include ../partials/navbar %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4">
+        <h2><strong>Birds</strong></h2>
+      </div>
+      <div class="col-sm-2"></div>
+      <div class="col-sm-3">
+        <a href="/animals/addAnimal" class="btn btn-primary"> Add Brid</a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-8">
+
+
+        <table id="animalTable" class="table table-bordered table-striped table-hover  table-responsive-md">
+
+          <thead>
+            <tr>
+              <td>Species</td>
+              <td>Nickname</td>
+              <td>Enabled</td>
+              
+              <td>Edit</td>
+              <td>Delete</td>
+            </tr>
+          </thead>
+
+          <% for(var i=0; i < data.length; i++) { %>
+          <tr>
+            <td><%=data[i].species%></td>
+            <td><%=data[i].nickName%></td>
+            <td><%=data[i].enabled%></td>
+            <td><a href="/animals/updateAnimal?id=<%= data[i]._id %>"><img
+                  src="https://img.icons8.com/android/24/000000/edit.png" /></a></td>
+              <td><a href="/animals/delete?id=<%= data[i]._id %>"
+                onclick="return confirm('Are you sure you want to delete this?')"><img
+                  src="https://img.icons8.com/fluent-systems-filled/24/000000/trash.png" /></a></td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </div>
+
+
+      </div>
+
+      <% include ../partials/scripts%>
+      <script type="text/javascript">
+        $(document).ready(function () {
+          $('#animalTable').DataTable({
+            responsive: true
+          });
+        });
+      </script>
+       <style>
+        #animalTable {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+      
+        #animalTable thead {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            font-style: normal;
+            background-color: rgb(131, 253, 131);
+            color: black;
+        }
+      </style>
+</body>
+
+</html>
