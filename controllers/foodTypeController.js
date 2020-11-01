@@ -39,7 +39,7 @@ exports.get_update_foodType= function(req, res) {
             // handle error
         } else {
             console.log(FoodType);
-            res.render('/foodType/updateFoodType', { data: foodType });
+            res.render('foodType/updateFoodType', { data: foodType });
         }
     });
 }

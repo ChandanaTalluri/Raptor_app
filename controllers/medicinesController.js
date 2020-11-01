@@ -42,7 +42,7 @@ exports.get_update_medicines= function(req, res) {
             // handle error
         } else {
             console.log(Medicines);
-            res.render('/medicines/updateMedicines', { data: medicines });
+            res.render('medicines/updateMedicines', { data: medicines });
         }
     });
 }
