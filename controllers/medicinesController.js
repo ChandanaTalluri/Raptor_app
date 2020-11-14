@@ -73,7 +73,3 @@ exports.get_delete_medicines = function(req, res) {
       }
     });
   };
-
-
-
-
