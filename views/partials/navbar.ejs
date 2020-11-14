@@ -10,7 +10,7 @@
 
 
         <nav id="navbar_top" class="navbar navbar-dark bg-dark navbar-expand-lg mb-5">
-            <a class="navbar-brand"  href="#"><span>Home</span></a>
+            <a class="navbar-brand"  href="/homepage"><span>Home</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,14 +28,20 @@
                     <li>
 
                     </li>
+                    
                 </ul>
-                <form class="form-inline" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="searchLength" class="form-control" name="searchtext" placeholder="Search">
-                    </div>
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-
-                </form>  
+                <ul class="nav navbar-nav float-md-right">
+                    <% if (locals.user) { %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        <%} else { %>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/">Log in</a>
+                        </li>
+                        <% } %>
+                    </ul>
+               
 
             </div>
         </nav>

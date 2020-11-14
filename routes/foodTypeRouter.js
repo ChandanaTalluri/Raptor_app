@@ -3,17 +3,17 @@ var router = express.Router();
 var axios = require('axios');
 var foodTypeController = require('../controllers/foodTypeController');
 
+const authMiddleware = require('../middleware/ensureauthenticated');
 
+router.get('/',authMiddleware.ensureAuthenticated,foodTypeController.get_foodType);
 
-router.get('/',foodTypeController.get_foodType);
+router.get('/addFoodType',authMiddleware.ensureAuthenticated, foodTypeController.get_add_foodType);
+router.post('/addFoodType',authMiddleware.ensureAuthenticated, foodTypeController.post_add_foodType);
 
-router.get('/addFoodType', foodTypeController.get_add_foodType);
-router.post('/addFoodType', foodTypeController.post_add_foodType);
+router.get('/updateFoodType',authMiddleware.ensureAuthenticated, foodTypeController.get_update_foodType);
+router.post('/updateFoodType',authMiddleware.ensureAuthenticated, foodTypeController.post_update_foodType);
 
-router.get('/updateFoodType', foodTypeController.get_update_foodType);
-router.post('/updateFoodType', foodTypeController.post_update_foodType);
-
-router.get('/deleteFoodType', foodTypeController.get_delete_foodType);
+router.get('/deleteFoodType',authMiddleware.ensureAuthenticated, foodTypeController.get_delete_foodType);
 
 module.exports = router;
 
