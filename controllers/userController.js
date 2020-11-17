@@ -17,14 +17,12 @@ exports.get_add_user= function(req, res) {
 
 exports.post_add_user = function (req, res) {
 
-    let users = new User({
-        email:req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        password: req.body.password,
-        role:req.body.role
-        
-    });
+    let users = new User();
+        users.email=req.body.email;
+        users.firstName= req.body.firstName;
+        users.lastName= req.body.lastName;
+        users.password= users.generateHash(req.body.password);
+        users.role=req.body.role;
     console.log(users);
     users.save(function (err) {
         if (err) {
@@ -59,6 +57,10 @@ exports.post_update_user = function (req, res) {
         lastName: req.body.lastName,
         role:req.body.role
     };
+    let user = new User();
+    if (req.body.password) {
+        updateUser.password = user.generateHash(req.body.password);
+    }
 
     User.findOneAndUpdate({ _id: req.body.id }, updateUser, function (err, data) {
         if (err) {
