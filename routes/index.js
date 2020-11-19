@@ -25,7 +25,7 @@ router.post('/signUpPage', passport.authenticate('local-signup', {
 }));
 
 router.post('/', passport.authenticate('local-login', {
-    successRedirect: '/homepage', //redirect to the home page
+    successRedirect: '/feeding', //redirect to the home page
     failureRedirect: '/', // redirect back to the signup page if there is an error
     failureFlash: true // allow flash messages
 }));
