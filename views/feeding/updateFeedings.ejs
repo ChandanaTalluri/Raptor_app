@@ -19,15 +19,15 @@
             <div class="form-group">
               <label for="dateTime"> dateTime</label>
               <input type="date" class="form-control" id="dateTime" placeholder="Enter dateTime" name="dateTime"
-              >
+              value="<%=data.dateTime%>" required>
             </div>
             <div class="form-group">
               <label for="animalId">Animal</label>
               <select required class="form-control" name="animalId">
-                  <option value="<%=data.animalSpecies%>(<%=data.animalNickName%>)"></option>
+                  <option></option>
                   <% for(var i=0; i<animals.length; i++) { %>
                       <option value="<%=animals[i]._id%>">
-                          <%=animals[i].species%> - <%=animals[i].nickName%>
+                          <%=animals[i].species%>(<%=animals[i].nickName%>)
                       </option>
                   <% } %>
               </select>
@@ -35,7 +35,7 @@
             <div class="form-group">
               <label for="food">Food</label>
               <select required class="form-control" name="food">
-                  <option value="<%=data.food%>"></option>
+                  <option></option>
                   <% for(var i=0; i<foods.length; i++) { %>
                       <option value="<%=foods[i].name%>">
                           <%=foods[i].name%>
@@ -47,7 +47,7 @@
             <div class="form-group">
               <label for="medicine">Medicine (Optional)</label>
               <select class="form-control" name="medicine">
-                  <option value="<%=data.medicine%>"></option>></option>
+                  <option></option>
                   <% for(var i=0; i<medicines.length; i++) { %>
                       <option value="<%=medicines[i].name%>">
                           <%=medicines[i].name%>
@@ -73,7 +73,7 @@
             </div>
             <div class="form-group">
               <label for="leftoverFood"> Left Over Food</label>
-              <input type="number" class="form-control" id="leftoverFood" placeholder="leftoverFood" name="leftoverFood"
+              <input type="number"  class="form-control" id="leftoverFood" placeholder="leftoverFood" name="leftoverFood"
               value="<%=data.leftoverFood%>">
             </div>
             <div class="form-group">
@@ -83,8 +83,19 @@
             </div>
             <div class="form-group">
               <label for="weatherConditions"> Weather Conditions</label>
-              <input type="text" class="form-control" id="weatherConditions" placeholder="Weather Conditions" name="weatherConditions"
-              value="<%=data.weatherConditions%>">
+              
+              <select class="form-control" name="weatherConditions">
+                <option> <%=data.weatherConditions%></option>
+                <option>Sunny - Cold</option>
+                <option>Cloudy - Cold</option>
+                <option>Precipitation - Cold</option>
+                <option>Sunny - Mild</option>
+                <option>Cloudy - Mild</option>
+                <option>Precipitation - Mild</option>
+                <option>Sunny - Hot</option>
+                <option>Cloudy - Hot</option>
+                <option>Precipitation - Hot</option>
+            </select>
             </div>
             
             <div class="form-group">

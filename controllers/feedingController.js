@@ -6,11 +6,11 @@ const excel = require('exceljs');
 
 exports.get_export = async function(req, res) {
         const feedings = await Feedings.find({}).sort({dateTime: 'desc'});
-        console.log(feedings);
+      
         const workbook = new excel.Workbook();
         const worksheet = workbook.addWorksheet('Feedings');
         worksheet.columns = [
-          {header: 'Date', key: 'dateTime', width: 10},
+          {header: 'Date', key: 'dateTime', width: 20},
           {header: 'Species', key: 'animalSpecies', width: 10},
           {header: 'Nickname', key: 'animalNickName', width: 10},
           {header: 'Food', key: 'food', width: 10},
