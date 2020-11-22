@@ -6,13 +6,13 @@ const excel = require('exceljs');
 
 exports.get_export = async function(req, res) {
         const feedings = await Feedings.find({}).sort({dateTime: 'desc'});
-      
+        console.log(feedings);
         const workbook = new excel.Workbook();
         const worksheet = workbook.addWorksheet('Feedings');
         worksheet.columns = [
           {header: 'Date', key: 'dateTime', width: 10},
           {header: 'Species', key: 'animalSpecies', width: 10},
-          {header: 'Nickname', key: 'animalNickName:', width: 10},
+          {header: 'Nickname', key: 'animalNickName', width: 10},
           {header: 'Food', key: 'food', width: 10},
           {header: 'Medicine', key: 'medicine', width: 10},
           {header: 'Goal Weight', key: 'goalWeightOfAnimal', width: 10},
@@ -86,23 +86,27 @@ exports.post_add_feedings =async function (req, res) {
 
 
 
-exports.get_update_feedings = function (req, res) {
+exports.get_update_feedings = async function (req, res) {
+        const animals= await Animal.find({enabled: true});
+        const foods= await FoodType.find({});
+        const medicines= await Medicines.find({});
 
         Feedings.findOne({ _id: req.query.id }, function (err, feedings) {
                 if (err) {
                         // handle error
                 } else {
                         console.log(feedings);
-                        res.render('feeding/updateFeedings', { data: feedings });
+                        res.render('feeding/updateFeedings', { data: feedings,animals:animals,foods:foods,medicines:medicines });
                 }
         });
 }
-exports.post_update_feedings = function (req, res) {
-
+exports.post_update_feedings = async function (req, res) {
+        const animal= await Animal.findOne({_id:req.body.animalId});
 
         const updateFeedings = {
-                animalSpecies: req.body.animalSpecies,
-                animalNickName: req.body.animalNickName,
+
+                animalSpecies: animal.species,
+                animalNickName: animal.nickName,
                 food: req.body.food,
                 medicine: req.body.medicine,
                 goalWeightOfAnimal: req.body.goalWeightOfAnimal,
