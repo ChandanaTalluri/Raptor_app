@@ -56,15 +56,22 @@
     </div>
 
     <% include ../partials/scripts%>
-    
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#user').DataTable({  
+                responsive: true,
+                order: [[ 0, "desc" ]]
+            });
+        });
+       </script>
     <style>
-        #medicines {
+        #user {
             font-family: Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
         }
 
-        #medicines thead {
+        #user thead {
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;

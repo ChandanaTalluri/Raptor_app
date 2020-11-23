@@ -18,6 +18,7 @@ const animalsRouter = require('./routes/animalsRouter');
 const foodTypeRouter = require('./routes/foodTypeRouter');
 const medicinesRouter = require('./routes/medicinesRouter');
 const userRouter = require('./routes/userRouter');
+const passwordRouter = require('./routes/passwordRouter');
 
 
 var app = express();
@@ -70,6 +71,7 @@ app.use('/animals',animalsRouter);
 app.use('/foodType',foodTypeRouter);
 app.use('/medicines',medicinesRouter);
 app.use('/user',userRouter);
+app.use('/changePassword',passwordRouter);
 
 
 // catch 404 and forward to error handler

@@ -50,7 +50,14 @@
     </div>
 
     <% include ../partials/scripts%>
-    
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#medicines').DataTable({  
+                responsive: true,
+                order: [[ 0, "desc" ]]
+            });
+        });
+       </script>
     <style>
         #medicines {
             font-family: Arial, Helvetica, sans-serif;

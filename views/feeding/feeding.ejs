@@ -8,10 +8,10 @@
     <div class="container">
         <div class="row">
            
-            <div class="col-sm-2">
+            <div class="col-sm-9">
                 <h2><strong>Feedings</strong></h2>
             </div>
-            <div class="col-sm-5"></div>
+            
             <div class="col-sm-3">
                 <a href="/feeding/addFeedings" class="btn btn-primary"> Add Feedings</a>
                 <a href="/feeding/export" class="btn btn-primary"> Export Data</a>
@@ -19,8 +19,9 @@
             </div>
         </div>
         <br>
+        
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 <table id="feedings" class="table table-bordered table-striped table-hover  table-responsive-md">
 
                     <thead>
@@ -35,7 +36,6 @@
                             <td><strong> Left Over of Food </strong></td>
                             <td><strong> Comments</strong></td>
                             <td><strong> Weather Conditions</strong></td>
-                            
                             <td><strong> keeper Name </strong></td>
                             <td><strong> Edit </strong></td>
                             <td><strong>Delete</strong></td>
@@ -72,7 +72,14 @@
     </div>
 
     <% include ../partials/scripts%>
-    
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#feedings').DataTable({  
+                responsive: true,
+                order: [[ 0, "desc" ]]
+            });
+        });
+       </script>
     <style>
         #feedings {
             font-family: Arial, Helvetica, sans-serif;

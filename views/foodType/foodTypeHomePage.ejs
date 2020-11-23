@@ -51,7 +51,14 @@
   </div>
 
   <% include ../partials/scripts%>
- 
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $('#foodType').DataTable({  
+            responsive: true,
+            order: [[ 0, "desc" ]]
+        });
+    });
+   </script>
  <style>
   #foodType {
       font-family: Arial, Helvetica, sans-serif;
