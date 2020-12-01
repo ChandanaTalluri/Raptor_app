@@ -5,7 +5,8 @@ var feedingController = require('../controllers/feedingController');
 const authMiddleware = require('../middleware/ensureauthenticated');
 
 router.get('/',authMiddleware.ensureAuthenticated,feedingController.get_feedings);
-router.get('/export',authMiddleware.ensureAuthenticated,feedingController.get_export);
+//router.get('/export',authMiddleware.ensureAuthenticated,feedingController.get_export);
+router.post('/export',authMiddleware.ensureAuthenticated,feedingController.post_Export);
 
 router.get('/addFeedings',authMiddleware.ensureAuthenticated, feedingController.get_add_feedings);
 router.post('/addFeedings',authMiddleware.ensureAuthenticated, feedingController.post_add_feedings);

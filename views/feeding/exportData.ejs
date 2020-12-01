@@ -7,45 +7,19 @@
 
     <div class="container">
         <div class="row">
-
+           
             <div class="col-sm-9">
                 <h2><strong>Feedings</strong></h2>
             </div>
-
+            
             <div class="col-sm-3">
                 <a href="/feeding/addFeedings" class="btn btn-primary"> Add Feedings</a>
-                <button id="showExport" class="btn btn-primary"> Export Data</button>
-
-            </div>
-        </div>
-        <div id="exportData">
-            <div class="row">
-                <form method="POST" action="/feeding/export">
-                    <div class="form-group">
-                        <label for="fromDate"> From Date</label>
-                        <input type="date" class="form-control" id="fromDate" placeholder="Enter From Date"
-                            name="fromDate">
-                        <label for="ToDate"> To Date</label>
-                        <input type="date" class="form-control" id="toDate" placeholder="Enter To Date" name="toDate">
-                    </div>
-                    <p> Or </p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="allData" name="allData">
-                        <label class="form-check-label" for="allData">All Data</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="radio" id="csvFile" name="fileType" value="csvFile">
-                        <label for="csvFile">CSV</label><br>
-                        <input type="radio" id="excelFile" name="fileType" value="excelFile">
-                        <label for="excelFile">Excel</label><br>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button id="hideExport" class="btn btn-primary">Close</button>
-                </form>
+                <a href="/feeding/export" class="btn btn-primary"> Export Data</a>
+                
             </div>
         </div>
         <br>
-
+        
         <div class="row">
             <div class="col-sm-12">
                 <table id="feedings" class="table table-bordered table-striped table-hover  table-responsive-md">
@@ -82,7 +56,7 @@
                         <td><%=data[i].comments%></td>
                         <td><%=data[i].weatherConditions%></td>
                         <td><%=data[i].keeperName%></td>
-
+                        
                         <td><a href="/feeding/updateFeedings?id=<%= data[i]._id %>"><img
                                     src="https://img.icons8.com/android/24/000000/edit.png" /></a> </td>
 
@@ -99,22 +73,13 @@
 
     <% include ../partials/scripts%>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#exportData').hide();
-            $('#feedings').DataTable({
+        $(document).ready( function () {
+            $('#feedings').DataTable({  
                 responsive: true,
-                order: [[0, "desc"]]
-            });
-            $("#showExport").click(function () {
-                $("#exportData").show();
-            });
-            $("#hideExport").click(function () {
-                $("#exportData").hide();
+                order: [[ 0, "desc" ]]
             });
         });
-
-    </script>
-
+       </script>
     <style>
         #feedings {
             font-family: Arial, Helvetica, sans-serif;
