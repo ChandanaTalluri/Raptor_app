@@ -21,10 +21,12 @@
                         <a class="nav-link" href="/feeding">Feeding </a>
                     </li>-->
                     
+                    <% if (locals.user.role=="admin") { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">Settings</a>
+                        </li>
+                    <%}%>
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="/settings">Settings</a>
-                    </li>
                     <li>
 
                     </li>

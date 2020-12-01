@@ -36,10 +36,14 @@
           </div>
 
           <div class="form-group">
-            
             <label for="role">Role</label>
-            <input type="text" class="form-control" id="role" placeholder="Role" name="role"
-              value="<%= data.role %>">
+                <select class="custom-select" name="role" required>
+                  <option><%= data.role %></option>
+                    <option value="admin" >admin</option>
+                    <option value="user" >user</option>
+
+                </select>
+            
           </div>
 
 
