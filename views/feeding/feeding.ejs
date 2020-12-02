@@ -19,26 +19,49 @@
             </div>
         </div>
         <div id="exportData">
-            <div class="row">
-                <h5>Export Data</h5>
+            <h5 style="text-align: center;">Export Data</h5>
+            
+            <div class="row justify-content-center">
+                <div class="col-sm-12">
+                    <p style="text-align: center;"><strong>Select date range: </strong> </p>
+                </div>
                 <form method="POST" action="/feeding/export">
                     <div class="form-group">
-                        <label for="fromDate"> From Date</label>
-                        <input type="date" class="form-control" id="fromDate" placeholder="Enter From Date"
-                            name="fromDate">
-                        <label for="ToDate"> To Date</label>
-                        <input type="date" class="form-control" id="toDate" placeholder="Enter To Date" name="toDate">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="fromDate"> From Date</label>
+                                <input type="date" class="form-control" id="fromDate" placeholder="Enter From Date"
+                                    name="fromDate">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="ToDate"> To Date</label>
+                                <input type="date" class="form-control" id="toDate" placeholder="Enter To Date"
+                                    name="toDate">
+                            </div>
+                        </div>
+
                     </div>
-                    <p> Or </p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="allData" name="allData">
-                        <label class="form-check-label" for="allData">All Data</label>
+                    <p style="text-align: center;"> Or </p>
+                    <div class="form-check ">
+                        <div class="row">
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" class="form-check-input" id="allData" name="allData">
+                                <label class="form-check-label" for="allData"> All Data</label>
+                            </div>
+
+                        </div>
+
                     </div>
                     <div class="form-group">
-                        <input type="radio" id="csvFile" name="fileType" value="csvFile">
-                        <label for="csvFile">CSV</label><br>
-                        <input type="radio" id="excelFile" name="fileType" value="excelFile">
-                        <label for="excelFile">Excel</label><br>
+                        <p><strong>Select File Type :</strong></p>
+                        <div class=" justify-content-center">
+                            <input type="radio" id="csvFile" name="fileType" value="csvFile" required>
+                            <label for="csvFile">CSV</label><br>
+                            <input type="radio" id="excelFile" name="fileType" value="excelFile" required>
+                            <label for="excelFile">Excel</label><br>
+                        </div>
+
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button id="hideExport" class="btn btn-primary">Close</button>

@@ -100,6 +100,16 @@
   </div>
 
   <% include ../partials/scripts%>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementsByName("dateTime")[0].setAttribute('max', today);
+      document.getElementsByName("dateTime")[0].setAttribute('min', today);
+      //dateTime
+    });
+
+</script>
+  
 </body>
 
 </html>

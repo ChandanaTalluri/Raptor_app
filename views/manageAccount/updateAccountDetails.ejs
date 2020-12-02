@@ -15,24 +15,24 @@
 
 
         <form method="POST" action="/manageAccount/updateAccountDetails">
-          <input type="hidden" name="id" value="<%=data._id%>" />
-
+            <input type="hidden" name="id" value="<%=data._id%>" />
+            
           <div class="form-group">
             <label for="emial">Email</label>
             <input type="text" class="form-control" id="email" placeholder="Enter Email ID" name="email"
-              value="<%=locals.user.emial%>">
+              value="<%=data.email%>">
           </div>
           
           <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
-              value="<%=locals.user.firstName%>">
+              value="<%=data.firstName%>">
           </div>
 
           <div class="form-group">
             <label for="lastName">Last Name</label>
             <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
-              value="<%=locals.user.lastName%>">
+            value="<%=data.lastName%>">
           </div>
 
          
