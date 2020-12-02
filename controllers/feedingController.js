@@ -14,17 +14,19 @@ exports.post_Export = async function (req, res) {
         let allData = req.body.allData;
         console.log("all Data-  " + allData);
         let feedings = "";
-
-        if (fromDate != null && toDate != null) {
+        if(allData == 'on') {
+                feedings = await Feedings.find({}).sort({ dateTime: 'desc' });
+        }
+        else if (fromDate != null && toDate != null) {
                 feedings = await Feedings.find({
                         dateTime: {
                                 $gte: new Date(new Date(fromDate).setHours(00, 00, 00)),
                                 $lt: new Date(new Date(toDate).setHours(23, 59, 59)),
                         },
                 });
-        } else {
-                feedings = await Feedings.find({}).sort({ dateTime: 'desc' });
-        }
+        } 
+        
+        
 
         if (fileType == "csvFile") {
 
