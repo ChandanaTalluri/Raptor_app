@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<% include ../partials/header %>
+
+<body>
+  <% include ../partials/navbar %>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-5">
+        <h3>Update Account Details</h3>
+        <br>
+
+
+        <form method="POST" action="/manageAccount/updateAccountDetails">
+          <input type="hidden" name="id" value="<%=data._id%>" />
+
+          <div class="form-group">
+            <label for="emial">Email</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter Email ID" name="email"
+              value="<%=locals.user.emial%>">
+          </div>
+          
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
+              value="<%=locals.user.firstName%>">
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
+              value="<%=locals.user.lastName%>">
+          </div>
+
+         
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <% include ../partials/scripts%>
+</body>
+
+</html>
