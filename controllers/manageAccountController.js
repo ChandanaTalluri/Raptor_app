@@ -37,13 +37,13 @@ exports.get_updateAccount = async function(req, res) {
 
 exports.post_updateAccount = async function(req, res) {
     const userInfo = await User.findOne({ _id: req.user._id });
-    let updateUserAccount = new User({
+    const updateUserAccount = {
         email:req.body.email,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        password:userInfo.password,
+        //password:userInfo.password,
         role: userInfo.role,
-    });
+    };
 
     console.log(updateUserAccount);
     User.findOneAndUpdate({ _id: req.body.id }, updateUserAccount, function (err, data) {
