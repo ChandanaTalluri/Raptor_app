@@ -1,4 +1,5 @@
 
+const { reset } = require('nodemon');
 const User = require('../models/user.model');
 
 exports.get_account = async function(req, res) {
@@ -23,9 +24,28 @@ exports.post_password = async function(req, res) {
     console.log(req.user._id );
     const userInfo = await User.findOne({ _id: req.user._id });
     let oldPassword = req.body.oldPassword;
-  //  let newUser = new User();
-    
-    res.render('/manageAccount');
+    let newUser = new User();
+  
+    // use the valid password method on the user to compare the password they entered to what's in the database
+    if (userInfo.validPassword(oldPassword)) {
+
+        // generate a new pw hash
+        let newHash = newUser.generateHash(req.body.newPassword);
+
+        try {
+            await User.findOneAndUpdate({_id:req.user._id}, {password: newHash});
+        }
+        catch (err) {
+            // could probably handle a potential error better
+            console.log(err);
+        }
+
+        res.redirect('/manageAccount');
+    }
+    else {
+        // could probably direct to a nicely formatted message here letting the user know this
+        res.send('The old pasword you entered does not match your current record');
+    }
 }
 
 exports.get_updateAccount = async function(req, res) {
