@@ -11,6 +11,9 @@
       <div class="col-sm-5">
         <h3>Add User</h3>
         <br>
+        <% if (errormessage.length > 0) { %>
+          <div class="alert alert-danger"><%= errormessage %></div>
+          <% } %>
         <form method="POST" action="/user/addUser">
           <div class="form-group">
             <label>Email</label>

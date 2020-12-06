@@ -17,7 +17,7 @@ exports.post_account = function (req, res) {
 exports.get_password = async function(req, res) {
     console.log(req.user._id );
     const user = await User.findOne({ _id: req.user._id });
-    res.render('manageAccount/changePassword');
+    res.render('manageAccount/changePassword',{errormessage:''});
 }
 
 exports.post_password = async function(req, res) {
@@ -43,8 +43,9 @@ exports.post_password = async function(req, res) {
         res.redirect('/manageAccount');
     }
     else {
+        res.render('manageAccount/changePassword',{errormessage:'The old pasword you entered does not match your current record'});
         // could probably direct to a nicely formatted message here letting the user know this
-        res.send('The old pasword you entered does not match your current record');
+       // res.send('The old pasword you entered does not match your current record');
     }
 }
 

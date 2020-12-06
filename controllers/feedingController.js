@@ -8,23 +8,21 @@ const excel = require('exceljs');
 exports.post_Export = async function (req, res) {
         let fileType = req.body.fileType;
         let fromDate = req.body.fromDate;
-        console.log("From Date-  " + fromDate);
         let toDate = req.body.toDate;
-        console.log("To Date-  " + toDate);
-        let allData = req.body.allData;
-        console.log("all Data-  " + allData);
         let feedings = "";
-        if(allData == 'on') {
-                feedings = await Feedings.find({}).sort({ dateTime: 'desc' });
-        }
-        else if (fromDate != null && toDate != null) {
+        
+        if (fromDate != null && fromDate != "" && toDate != null && toDate != null) {
+                console.log('entered if range')
                 feedings = await Feedings.find({
                         dateTime: {
                                 $gte: new Date(new Date(fromDate).setHours(00, 00, 00)),
                                 $lt: new Date(new Date(toDate).setHours(23, 59, 59)),
                         },
                 });
-        } 
+        } else{
+                console.log('entered else')
+                feedings = await Feedings.find({}).sort({ dateTime: 'desc' });
+        }
         
         
 
