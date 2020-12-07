@@ -26,7 +26,7 @@ exports.post_add_user = function (req, res) {
     console.log(users);
     users.save(function (err) {
         if (err) {
-            // handle error
+
             User.findOne({ 'email': req.body.email }, function (err, user) {
                 if (user) {
                     res.render('user/addUser', { errormessage: 'User already exists' });

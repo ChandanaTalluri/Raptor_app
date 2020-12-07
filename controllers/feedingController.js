@@ -12,7 +12,7 @@ exports.post_Export = async function (req, res) {
         let feedings = "";
         
         if (fromDate != null && fromDate != "" && toDate != null && toDate != null) {
-                console.log('entered if range')
+                
                 feedings = await Feedings.find({
                         dateTime: {
                                 $gte: new Date(new Date(fromDate).setHours(00, 00, 00)),
@@ -20,7 +20,7 @@ exports.post_Export = async function (req, res) {
                         },
                 });
         } else{
-                console.log('entered else')
+                
                 feedings = await Feedings.find({}).sort({ dateTime: 'desc' });
         }
         
