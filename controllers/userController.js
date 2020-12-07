@@ -69,6 +69,10 @@ exports.post_update_user = function (req, res) {
     if (req.body.password) {
         updateUser.password = user.generateHash(req.body.password);
     }
+    let newPassword = req.body.newPassword;
+    if(newPassword!=null && newPassword!=""){
+        updateUser.password  = user.generateHash(newPassword);
+    }
     
         User.findOneAndUpdate({ _id: req.body.id }, updateUser, function (err, data) {
             
@@ -92,29 +96,7 @@ exports.get_delete_user = function (req, res) {
     });
 };
 
-exports.get_update_password = async function (req, res) {
-
-    res.render('user/changeUserPassword');
-};
 
 
-exports.post_update_password = async function (req, res) {
-    console.log(req.user._id);
-    const userInfo = await User.findOne({ _id: req.user._id });
-    let oldPassword = req.body.oldPassword;
-    let newUser = new User();
 
-    // generate a new pw hash
-    let newHash = newUser.generateHash(req.body.newPassword);
 
-    try {
-        await User.findOneAndUpdate({ _id: req.user._id }, { password: newHash });
-    }
-    catch (err) {
-        // could probably handle a potential error better
-        console.log(err);
-    }
-
-    res.redirect('/user');
-
-};

@@ -20,8 +20,18 @@
             </div>
         </div>
         <div id="exportData">
+            <br>
+            <div class="row">
+                <div class="col-sm-9"> </div>
+                <div class="col-sm-2">
+                    <div id="hideExport" style="color: brown; text-align: right;">
+                        <a id="hideExport" type="submit">Close</a>
+                    </div>
+                </div>
+
+            </div>
             <h5 style="text-align: center;">Export Data</h5>
-            
+
             <div class="row justify-content-center">
                 <div class="col-sm-12">
                     <p style="text-align: center;"><strong>Select date range: </strong> </p>
@@ -42,9 +52,10 @@
                         </div>
 
                     </div>
-                    <p style="text-align: center;">Note: Complete feedings data will be downloaded if date range is not selected </p>
-                    
-                    <div class="form-group">
+                    <p style="text-align: center;">Note: Complete feedings data will be downloaded if date range is not
+                        selected </p>
+
+                    <div class="form-group" style="text-align: center;">
                         <p><strong>Select File Type :</strong></p>
                         <div class=" justify-content-center">
                             <input type="radio" id="csvFile" name="fileType" value="csvFile" required>
@@ -54,10 +65,15 @@
                         </div>
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button id="hideExport" class="btn btn-primary">Close</button>
+                    
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
                 </form>
+                
             </div>
+
         </div>
         <br>
 

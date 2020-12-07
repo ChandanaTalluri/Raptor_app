@@ -14,8 +14,6 @@ router.post('/updateUser',authMiddleware.ensureAuthenticated, userController.pos
 
 router.get('/deleteUser',authMiddleware.ensureAuthenticated, userController.get_delete_user);
 
-router.get('/changeUserPassword',authMiddleware.ensureAuthenticated, userController.get_update_password);
-router.post('/changeUserPassword',authMiddleware.ensureAuthenticated, userController.post_update_password);
 
 module.exports = router;
 
