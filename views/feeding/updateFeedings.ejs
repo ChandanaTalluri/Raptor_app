@@ -24,7 +24,7 @@
             <div class="form-group">
               <label for="animalId">Animal</label>
               <select required class="form-control" name="animalId">
-                  <option></option>
+                  <option><%=data.animalSpecies%>(<%=data.animalNickName%>)</option>
                   <% for(var i=0; i<animals.length; i++) { %>
                       <option value="<%=animals[i]._id%>">
                           <%=animals[i].species%>(<%=animals[i].nickName%>)
@@ -112,6 +112,16 @@
     </div>
   </div>
   <% include ../partials/scripts%>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementsByName("dateTime")[0].setAttribute('max', today);
+      
+      
+    });
+
+</script>
 </body>
 
 </html>

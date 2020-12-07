@@ -162,11 +162,30 @@ exports.get_update_feedings = async function (req, res) {
 }
 exports.post_update_feedings = async function (req, res) {
         const animal = await Animal.findOne({ _id: req.body.animalId });
+        console.log(req.body.animalId);
+        let animalSpeciesName="";
+        let animalNN="";
+        let animalArray=""
+        if(animal==null ){
+                let animaldetails = req.body.animalId;
+                animalArray = animaldetails.split('(');
+                //console.log(animalSpecies);
+                animalSpeciesName= animalArray[0];
+                console.log(animalArray[0]);
+                let nickName= animalArray[1].split(")");
+                animalNN=nickName[0];
+                console.log(animalNN);
+
+
+        }else{
+                animalSpeciesName= animal.species;
+                animalNN= animal.nickName;
+        }
 
         const updateFeedings = {
-
-                animalSpecies: animal.species,
-                animalNickName: animal.nickName,
+                animalSpecies: animalSpeciesName,
+                animalNickName: animalNN,
+                
                 food: req.body.food,
                 medicine: req.body.medicine,
                 goalWeightOfAnimal: req.body.goalWeightOfAnimal,
