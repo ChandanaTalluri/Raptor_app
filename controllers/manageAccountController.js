@@ -1,5 +1,3 @@
-
-const { reset } = require('nodemon');
 const User = require('../models/user.model');
 
 exports.get_account = async function(req, res) {
