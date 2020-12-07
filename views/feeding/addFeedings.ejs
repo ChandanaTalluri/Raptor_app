@@ -53,19 +53,19 @@
           
           <div class="form-group">
             <label for="goalWeightOfAnimal"> Goal Weight of Animal </label>
-            <input type="number" class="form-control" id="goalWeightOfAnimal" placeholder="Goal weight of animal" name="goalWeightOfAnimal">
+            <input type="number" class="form-control" id="goalWeightOfAnimal" step="any" placeholder="Goal weight of animal" name="goalWeightOfAnimal">
           </div>
           <div class="form-group">
             <label for="actualWeightOfAnimal"> Actual Weight of Animal</label>
-            <input type="number" class="form-control" id="actualWeightOfAnimal" placeholder="Actual weight of animal" name="actualWeightOfAnimal">
+            <input type="number" class="form-control" id="actualWeightOfAnimal" step="any" placeholder="Actual weight of animal" name="actualWeightOfAnimal">
           </div>
           <div class="form-group">
             <label for="amountOfFoodFed"> Amount of Food Fed</label>
-            <input type="number" class="form-control" id="amountOfFoodFed" placeholder="Food in grams" name="amountOfFoodFed">
+            <input type="number" class="form-control" id="amountOfFoodFed" step="any" placeholder="Food in grams" name="amountOfFoodFed">
           </div>
           <div class="form-group">
             <label for="leftoverFood"> Left Over Food</label>
-            <input type="number" class="form-control" id="leftoverFood" placeholder="Food in grams" name="leftoverFood">
+            <input type="number" class="form-control" id="leftoverFood" step="any" placeholder="Food in grams" name="leftoverFood">
           </div>
           <div class="form-group">
             <label for="comments"> Comments</label>
@@ -100,6 +100,16 @@
   </div>
 
   <% include ../partials/scripts%>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementsByName("dateTime")[0].setAttribute('max', today);
+      
+      //dateTime
+    });
+
+</script>
+  
 </body>
 
 </html>

@@ -11,8 +11,8 @@ router.post('/',authMiddleware.ensureAuthenticated, passwordController.post_acco
 router.get('/changePassword',authMiddleware.ensureAuthenticated, passwordController.get_password);
 router.post('/changePassword',authMiddleware.ensureAuthenticated, passwordController.post_password);
 
-router.get('/updateAccountDetails',authMiddleware.ensureAuthenticated, passwordController.get_password);
-router.post('/updateAccountDetails',authMiddleware.ensureAuthenticated, passwordController.post_password);
+router.get('/updateAccountDetails',authMiddleware.ensureAuthenticated, passwordController.get_updateAccount);
+router.post('/updateAccountDetails',authMiddleware.ensureAuthenticated, passwordController.post_updateAccount);
 
 
 module.exports = router;

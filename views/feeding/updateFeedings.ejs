@@ -35,7 +35,7 @@
             <div class="form-group">
               <label for="food">Food</label>
               <select required class="form-control" name="food">
-                  <option></option>
+                  <option><%=data.food%></option>
                   <% for(var i=0; i<foods.length; i++) { %>
                       <option value="<%=foods[i].name%>">
                           <%=foods[i].name%>
@@ -47,7 +47,7 @@
             <div class="form-group">
               <label for="medicine">Medicine (Optional)</label>
               <select class="form-control" name="medicine">
-                  <option></option>
+                  <option><%=data.medicine%></option>
                   <% for(var i=0; i<medicines.length; i++) { %>
                       <option value="<%=medicines[i].name%>">
                           <%=medicines[i].name%>
@@ -58,22 +58,22 @@
             
             <div class="form-group">
               <label for="goalWeightOfAnimal"> Goal Weight of Animal </label>
-              <input type="number" class="form-control" id="goalWeightOfAnimal" placeholder="Goal Weight of Animal" name="goalWeightOfAnimal"
+              <input type="number" class="form-control" id="goalWeightOfAnimal" step="any" placeholder="Goal Weight of Animal" name="goalWeightOfAnimal"
               value="<%=data.goalWeightOfAnimal%>">
             </div>
             <div class="form-group">
               <label for="actualWeightOfAnimal"> Actual Weight of Animal</label>
-              <input type="number" class="form-control" id="actualWeightOfAnimal" placeholder="Actual Weight of Animal" name="actualWeightOfAnimal"
+              <input type="number" class="form-control" id="actualWeightOfAnimal" step="any" placeholder="Actual Weight of Animal" name="actualWeightOfAnimal"
               value="<%=data.actualWeightOfAnimal%>">
             </div>
             <div class="form-group">
               <label for="amountOfFoodFed"> Amount of Food Fed</label>
-              <input type="number" class="form-control" id="amountOfFoodFed" placeholder="Amount of Food Fed" name="amountOfFoodFed"
+              <input type="number" class="form-control" id="amountOfFoodFed" step="any" placeholder="Amount of Food Fed" name="amountOfFoodFed"
               value="<%=data.amountOfFoodFed%>">
             </div>
             <div class="form-group">
               <label for="leftoverFood"> Left Over Food</label>
-              <input type="number"  class="form-control" id="leftoverFood" placeholder="leftoverFood" name="leftoverFood"
+              <input type="number"  class="form-control" id="leftoverFood" step="any" placeholder="leftoverFood" name="leftoverFood"
               value="<%=data.leftoverFood%>">
             </div>
             <div class="form-group">

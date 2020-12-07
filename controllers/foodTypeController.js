@@ -1,7 +1,7 @@
 const FoodType = require('../models/foodType.model');
 
 exports.get_add_foodType= function(req, res) {
-    res.render('foodType/addFoodType');
+    res.render('foodType/addFoodType',{errorMessage:''});
    }
 exports.get_foodType = function(req, res) {
     FoodType.find({}, function (err, foodType) {
@@ -22,7 +22,7 @@ exports.post_add_foodType = function (req, res) {
     console.log(foodType);
     foodType.save(function (err) {
         if (err) {
-            // handle error
+            //res.render('foodType/addFoodType',{errorMessage:'Food Type alredy exists'});
             console.log(err);
         } else {
             // saved!
@@ -52,7 +52,8 @@ exports.post_update_foodType = function (req, res) {
 
     FoodType.findOneAndUpdate({ _id: req.body.id }, updateFoodType, function (err, data) {
         if (err) {
-            // handle error
+            //console.log(err.codeName);
+           // res.render('foodType/updateFoodType',{data: updateFoodType,errorMessage:'Food Type alredy exists'});
             console.log(err);
         } else {
             res.redirect('/foodType');
@@ -63,7 +64,7 @@ exports.post_update_foodType = function (req, res) {
 exports.get_delete_foodType = function(req, res) {
     FoodType.findOneAndDelete({_id: req.query.id}, function(err) {
       if (err) {
-        // handle error
+          
         console.log(err);
       } else {
         res.redirect('/foodType');
